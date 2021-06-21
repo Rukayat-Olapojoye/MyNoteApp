@@ -9,7 +9,7 @@ const Register=()=> {
 	const { register, handleSubmit } = useForm();
     const context = useContext(AppContext);
 	const userHistory = useHistory();
-    const user =context.state.userId;
+    //const user =context.state.userId;
 
     function registerUser({ email, password, confirmpassword }) {
 		if (!email) {
@@ -23,7 +23,7 @@ const Register=()=> {
 			return alert(`please provide an email`);
 		}
 		
-		let userFound = localStorage.getItem(user);
+		let userFound = localStorage.getItem(email);
 		console.log(userFound);
 		if (userFound) {
         return alert('this user has already been registered, Please sign in');
@@ -38,7 +38,7 @@ const Register=()=> {
 		};
         alert("User created Sucessfully, please sign in to continue!");
 		// save the users data for accessing later
-		localStorage.setItem(user, JSON.stringify(newUser))
+		localStorage.setItem(email, JSON.stringify(newUser))
 
 		context.dispatch({
             type: 'REGISTER',

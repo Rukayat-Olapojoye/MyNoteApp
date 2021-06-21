@@ -7,6 +7,7 @@ import AppStates from "./components/stateprovider";
 import HomePage from "./pages/HomePage";
 import CourseNotes from "./pages/CourseNotes";
 import UserNotes from "./pages/UserNotes";
+//import SingleNote from "./pages/SingleNote";
  
 function App() {
   return (
@@ -31,6 +32,12 @@ function App() {
 					<Route exact path='/notes'>
 						<CourseNotes/>
 					</Route>
+{/* render UserPost Component when we hit /userpost */}
+<Route exact path='/notes/:noteid'>
+						<CourseNotes />
+					</Route>
+
+
  {/* render Register Component when we hit /mynotes */}
  <Route exact path='/mynotes'>
 						<UserNotes/>
